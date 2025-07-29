@@ -1,0 +1,75 @@
+PROJECT REPORT  
+===============
+
+Title: Stock Price Trend Prediction Using LSTM  
+Student: Nagapuri Satwika  
+Tools & Technologies: Python, Keras, TensorFlow, yfinance, scikit-learn, matplotlib  
+Model: LSTM (Long Short-Term Memory) Neural Network
+
+----------------------------------------
+OBJECTIVE
+---------
+The objective of this project is to predict future stock prices using historical price trends. We use a deep learning model (LSTM) that is suitable for sequential time-series data, like stock prices.
+
+----------------------------------------
+DATASET
+-------
+- Source: Yahoo Finance (via yfinance API)
+- Stock: Apple Inc. (Ticker: AAPL)
+- Period: From January 1, 2015 to January 1, 2024
+- Feature Used: Closing price only
+- No external CSV or manual data is needed. Data is downloaded live using code.
+
+----------------------------------------
+METHODOLOGY
+-----------
+1. Data Collection:
+   - Downloaded historical closing price data for Apple Inc. from Yahoo Finance using the `yfinance` library.
+
+2. Data Preprocessing:
+   - Normalized the prices to values between 0 and 1 using `MinMaxScaler`.
+   - Created time sequences of 60 days to use as input to predict the 61st day price.
+
+3. Model Building:
+   - Designed an LSTM model with two LSTM layers followed by a Dense output layer.
+   - Used Mean Squared Error as the loss function and Adam optimizer.
+
+4. Model Training:
+   - Trained the model for 10 epochs with a batch size of 32 using the entire dataset (simplified version).
+
+5. Prediction & Evaluation:
+   - Made predictions on the dataset and plotted both actual and predicted prices for visual comparison.
+   - Used inverse transformation to convert predicted values back to actual price scale.
+
+----------------------------------------
+RESULTS
+-------
+- The model successfully captured the trend of the stock price movement.
+- Although trained on the same data (no test split), it showed a strong ability to follow the actual pattern.
+- The graph displayed predicted prices closely matching actual prices.
+
+----------------------------------------
+CONCLUSION
+----------
+- LSTM is effective for time-series prediction such as stock prices.
+- The model can predict stock trends using only the 'Close' price.
+- Real-time data access through yfinance makes the project dynamic and updated.
+
+----------------------------------------
+FUTURE ENHANCEMENTS
+-------------------
+- Add more features like Open, High, Low, Volume.
+- Integrate technical indicators like RSI, Moving Average.
+- Use a separate testing dataset for better evaluation.
+- Build a web app using Streamlit for user interaction and visualization.
+- Explore other deep learning models like GRU or BiLSTM.
+
+----------------------------------------
+FILES DELIVERED
+---------------
+- stock_price_prediction_lstm.ipynb  -> Jupyter notebook
+- model.h5                           -> Trained LSTM model
+- README.md                          -> Project guide and setup
+- requirements.txt                   -> Required Python libraries
+- report.txt                         -> This project report
+
